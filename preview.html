@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="My Happy Home Pamana Rewards: redeem complimentary assorted 1/2 dozen breads at Tsokolateria Pamana."
+    />
+    <title>My Happy Home Pamana Rewards</title>
+    <style>
+      :root {
+        --ink: #302016;
+        --brown: #6b3e26;
+        --terracotta: #b5663d;
+        --gold: #e9bc71;
+        --cream: #fffaf2;
+        --sand: #f6ead8;
+        --paper: #fffdfa;
+        --muted: #6f6258;
+        --line: rgba(48, 32, 22, 0.16);
+        --radius: 20px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--cream);
+        font-family: "Avenir Next", Avenir, Montserrat, Inter, Arial, sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        padding: 11px 20px;
+        color: var(--paper);
+        background: var(--brown);
+        font-size: 0.76rem;
+        font-weight: 750;
+        letter-spacing: 0.055em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+
+      .wordmarks {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        font-size: 0.8rem;
+        font-weight: 850;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+      }
+
+      .wordmarks strong {
+        color: var(--brown);
+      }
+
+      .wordmarks span {
+        color: var(--terracotta);
+        font-family: Georgia, serif;
+        font-size: 1.35rem;
+        font-weight: 400;
+      }
+
+      .nav-link {
+        padding-bottom: 3px;
+        border-bottom: 1px solid var(--terracotta);
+        color: var(--brown);
+        font-size: 0.86rem;
+        font-weight: 780;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+        gap: 48px;
+        align-items: center;
+        padding: 70px 0 78px;
+      }
+
+      .kicker {
+        margin: 0 0 15px;
+        color: var(--terracotta);
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 650px;
+        margin-bottom: 21px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3.15rem, 6.2vw, 5.2rem);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 0.97;
+      }
+
+      h1 em {
+        color: var(--terracotta);
+        font-style: normal;
+      }
+
+      .hero-copy {
+        max-width: 600px;
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .hero-copy strong {
+        color: var(--brown);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 49px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border-radius: 999px;
+        color: var(--paper);
+        background: var(--brown);
+        box-shadow: 0 7px 0 #482819;
+        font-size: 0.88rem;
+        font-weight: 800;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .button:hover {
+        box-shadow: 0 4px 0 #482819;
+        transform: translateY(3px);
+      }
+
+      .offer-card {
+        position: relative;
+        min-height: 384px;
+        padding: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(48, 32, 22, 0.1);
+        border-radius: 28px;
+        background: var(--sand);
+        box-shadow: 15px 18px 0 rgba(107, 62, 38, 0.1);
+      }
+
+      .offer-card::before {
+        position: absolute;
+        top: -67px;
+        right: -55px;
+        width: 230px;
+        height: 230px;
+        border: 1px solid rgba(107, 62, 38, 0.12);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .offer-card::after {
+        position: absolute;
+        right: -50px;
+        bottom: -78px;
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        content: "";
+        background: rgba(233, 188, 113, 0.45);
+      }
+
+      .offer-label,
+      .offer-card h2,
+      .offer-card p,
+      .bread-art,
+      .offer-note {
+        position: relative;
+        z-index: 1;
+      }
+
+      .offer-label {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border: 1px solid rgba(48, 32, 22, 0.13);
+        border-radius: 999px;
+        color: var(--brown);
+        background: rgba(255, 253, 250, 0.62);
+        font-size: 0.67rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .offer-card h2 {
+        max-width: 305px;
+        margin-bottom: 10px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.35rem;
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.96;
+      }
+
+      .offer-card p {
+        max-width: 285px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.6;
+      }
+
+      .bread-art {
+        position: absolute;
+        right: 30px;
+        bottom: 34px;
+        width: 150px;
+        height: 92px;
+        border-radius: 50% 50% 42% 42% / 65% 65% 37% 37%;
+        background: #c77b42;
+        box-shadow: inset -17px -10px 0 rgba(111, 56, 26, 0.16), 0 12px 0 rgba(107, 62, 38, 0.12);
+        transform: rotate(-8deg);
+      }
+
+      .bread-art::before,
+      .bread-art::after {
+        position: absolute;
+        top: 21px;
+        width: 37px;
+        height: 11px;
+        border-top: 5px solid #f2c87c;
+        border-radius: 50%;
+        content: "";
+        transform: rotate(-22deg);
+      }
+
+      .bread-art::before {
+        left: 26px;
+      }
+
+      .bread-art::after {
+        left: 72px;
+      }
+
+      .offer-note {
+        position: absolute;
+        bottom: 24px;
+        left: 28px;
+        color: var(--brown);
+        font-size: 0.72rem;
+        font-weight: 760;
+      }
+
+      .overview {
+        padding: 60px 0 70px;
+        background: var(--brown);
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        overflow: hidden;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .overview-item {
+        padding: 29px 28px;
+        color: var(--paper);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .overview-item span {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .overview-item strong {
+        display: block;
+        max-width: 235px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.48rem;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        line-height: 1.08;
+      }
+
+      .section {
+        padding: 95px 0;
+      }
+
+      .section-heading {
+        max-width: 620px;
+        margin-bottom: 39px;
+      }
+
+      .section-heading h2,
+      .terms-intro h2 {
+        margin-bottom: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.35rem, 4vw, 3.5rem);
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 1;
+      }
+
+      .section-heading p:not(.kicker) {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+
+      .step {
+        min-height: 237px;
+        padding: 23px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+      }
+
+      .step-number {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        margin-bottom: 42px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--paper);
+        background: var(--terracotta);
+        font-size: 0.76rem;
+        font-weight: 850;
+      }
+
+      .step h3 {
+        margin-bottom: 8px;
+        color: var(--brown);
+        font-size: 0.84rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.65;
+      }
+
+      .reminders {
+        padding: 0 0 95px;
+      }
+
+      .reminder-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--sand);
+      }
+
+      .reminder {
+        padding: 27px 25px;
+      }
+
+      .reminder + .reminder {
+        border-left: 1px solid var(--line);
+      }
+
+      .reminder strong {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--brown);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+      }
+
+      .reminder p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+
+      .terms-section {
+        padding: 82px 0 96px;
+        background: #f9f1e5;
+      }
+
+      .terms-layout {
+        display: grid;
+        grid-template-columns: 0.74fr 1.26fr;
+        gap: 70px;
+      }
+
+      .terms-intro {
+        color: var(--muted);
+        font-size: 0.91rem;
+        line-height: 1.7;
+      }
+
+      .terms-intro h2 {
+        color: var(--ink);
+      }
+
+      .terms-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: terms;
+      }
+
+      .terms-list li {
+        display: grid;
+        grid-template-columns: 31px 1fr;
+        gap: 12px;
+        padding: 17px 0;
+        border-top: 1px solid var(--line);
+        color: #5e5147;
+        font-size: 0.86rem;
+        line-height: 1.6;
+        counter-increment: terms;
+      }
+
+      .terms-list li::before {
+        content: counter(terms, decimal-leading-zero);
+        color: var(--terracotta);
+        font-size: 0.7rem;
+        font-weight: 850;
+        letter-spacing: 0.05em;
+      }
+
+      .terms-list li:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 90px;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      footer .wordmarks {
+        font-size: 0.68rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .terms-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          gap: 35px;
+        }
+
+        .offer-card {
+          width: min(100%, 520px);
+        }
+
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .container {
+          width: min(100% - 30px, 1120px);
+        }
+
+        .topbar {
+          padding: 9px 15px;
+          font-size: 0.65rem;
+          line-height: 1.45;
+        }
+
+        header {
+          min-height: 68px;
+        }
+
+        .wordmarks {
+          gap: 8px;
+          font-size: 0.61rem;
+          letter-spacing: 0.035em;
+        }
+
+        .wordmarks span {
+          font-size: 1rem;
+        }
+
+        .nav-link {
+          display: none;
+        }
+
+        .hero {
+          padding: 47px 0 55px;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 15vw, 4rem);
+        }
+
+        .hero-copy {
+          font-size: 0.97rem;
+        }
+
+        .offer-card {
+          min-height: 350px;
+          padding: 24px;
+        }
+
+        .offer-card h2 {
+          max-width: 270px;
+          font-size: 2.05rem;
+        }
+
+        .bread-art {
+          right: 19px;
+          bottom: 31px;
+          transform: scale(0.85) rotate(-8deg);
+          transform-origin: bottom right;
+        }
+
+        .offer-note {
+          bottom: 22px;
+          left: 24px;
+          max-width: 136px;
+        }
+
+        .overview {
+          padding: 35px 0;
+        }
+
+        .overview-grid,
+        .reminder-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .overview-item,
+        .reminder {
+          padding: 23px;
+        }
+
+        .reminder + .reminder {
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .step {
+          min-height: auto;
+        }
+
+        .step-number {
+          margin-bottom: 25px;
+        }
+
+        .reminders {
+          padding-bottom: 70px;
+        }
+
+        .terms-section {
+          padding: 65px 0 70px;
+        }
+
+        .terms-layout {
+          gap: 30px;
+        }
+
+        footer {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 10px;
+          padding: 22px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">MY HAPPY HOME PAMANA REWARDS</div>
+
+    <header class="container">
+      <div class="wordmarks" aria-label="Participating brands">
+        <strong>My Happy Home</strong>
+        <span aria-hidden="true">×</span>
+        <strong>Tsokolateria Pamana</strong>
+      </div>
+      <a class="nav-link" href="#terms">Terms &amp; Conditions</a>
+    </header>
+
+    <main>
+      <section class="container hero" aria-labelledby="page-title">
+        <div>
+          <p class="kicker">A little thank you for shopping with us</p>
+          <h1 id="page-title">Shop, dine, and enjoy a <em>bread treat.</em></h1>
+          <p class="hero-copy">
+            Spend <strong>PHP 10,000</strong> at My Happy Home in one transaction and enjoy one
+            (1) complimentary assorted <strong>1/2 dozen breads</strong> at Tsokolateria Pamana
+            with a minimum <strong>PHP 1,500 dine-in spend</strong>.
+          </p>
+          <a class="button" href="#how-to-redeem">See how to redeem</a>
+        </div>
+
+        <aside class="offer-card" aria-label="Promotion reward">
+          <span class="offer-label">Your Pamana reward</span>
+          <h2>Complimentary assorted 1/2 dozen breads</h2>
+          <p>Available upon presentation of one qualified My Happy Home official receipt.</p>
+          <div class="bread-art" aria-hidden="true"></div>
+          <span class="offer-note">Subject to availability</span>
+        </aside>
+      </section>
+
+      <section class="overview" aria-label="Promotion at a glance">
+        <div class="container overview-grid">
+          <div class="overview-item">
+            <span>01 · Shop</span>
+            <strong>Spend PHP 10,000</strong>
+          </div>
+          <div class="overview-item">
+            <span>02 · Dine</span>
+            <strong>Spend PHP 1,500 at Pamana</strong>
+          </div>
+          <div class="overview-item">
+            <span>03 · Enjoy</span>
+            <strong>Receive your bread reward</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section" id="how-to-redeem" aria-labelledby="redeem-title">
+        <div class="section-heading">
+          <p class="kicker">How to redeem</p>
+          <h2 id="redeem-title">Four simple steps.</h2>
+          <p>Please bring the original My Happy Home official receipt when you dine at Tsokolateria Pamana.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">1</span>
+            <h3>Shop</h3>
+            <p>Spend at least PHP 10,000 at My Happy Home in a single transaction.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">2</span>
+            <h3>Keep</h3>
+            <p>Keep the original official receipt. Split bills, combined receipts, and accumulated purchases are not accepted.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">3</span>
+            <h3>Dine</h3>
+            <p>Dine at Tsokolateria Pamana and spend at least PHP 1,500, net of discounts.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">4</span>
+            <h3>Redeem</h3>
+            <p>Present the original My Happy Home receipt and receive one (1) complimentary assorted 1/2 dozen breads.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container reminders" aria-labelledby="reminder-title">
+        <div class="section-heading">
+          <p class="kicker">Important reminders</p>
+          <h2 id="reminder-title">Please keep these in mind.</h2>
+        </div>
+        <div class="reminder-grid">
+          <article class="reminder">
+            <strong>Original receipt required</strong>
+            <p>Your My Happy Home official receipt must be presented upon redemption.</p>
+          </article>
+          <article class="reminder">
+            <strong>One receipt, one reward</strong>
+            <p>Each qualified receipt is valid for one redemption only.</p>
+          </article>
+          <article class="reminder">
+            <strong>Redeem within the month</strong>
+            <p>The receipt is valid only within the month stated on it or on applicable promo material.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="terms-section" id="terms" aria-labelledby="terms-title">
+        <div class="container terms-layout">
+          <div class="terms-intro">
+            <p class="kicker">Please read</p>
+            <h2 id="terms-title">Terms &amp; Conditions</h2>
+            <p>By participating in this promotion, you agree to the following conditions.</p>
+          </div>
+
+          <ol class="terms-list">
+            <li>Eligibility requires a minimum PHP 10,000 purchase at My Happy Home in one single transaction.</li>
+            <li>The original official receipt is required as proof of purchase and must be presented upon redemption.</li>
+            <li>Each qualified receipt is valid for one (1) redemption only and entitles the holder to one (1) complimentary assorted 1/2 dozen breads.</li>
+            <li>Redemption requires a minimum PHP 1,500 dine-in spend at Tsokolateria Pamana, net of discounts.</li>
+            <li>The qualified receipt may be redeemed only within the month stated on the receipt or applicable promo material.</li>
+            <li>Upon redemption, the receipt will be marked “REDEEMED” or collected to prevent multiple use.</li>
+            <li>The reward is non-transferable, non-refundable, and not convertible to cash, credit, or another product.</li>
+            <li>The offer may not be combined with other promotions or discounts, subject to applicable laws and regulations.</li>
+            <li>The bread assortment is subject to availability. An equivalent assortment may be provided when necessary.</li>
+            <li>Management reserves the right to verify eligibility and to amend, suspend, or terminate the promotion when necessary, subject to applicable laws and regulations.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container">
+      <div class="wordmarks" aria-label="Participating brands">
+        <strong>My Happy Home</strong>
+        <span aria-hidden="true">×</span>
+        <strong>Tsokolateria Pamana</strong>
+      </div>
+      <span>Subject to availability and applicable terms.</span>
+    </footer>
+  </body>
+</html>
