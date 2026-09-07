@@ -523,17 +523,133 @@
       }
 
       footer {
-        display: flex;
+        display: grid;
+        grid-template-columns: 0.8fr 1.25fr 0.85fr;
         align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        min-height: 90px;
+        gap: 28px;
+        min-height: 118px;
+        padding: 24px 0;
         color: var(--muted);
         font-size: 0.75rem;
       }
 
       footer .wordmarks {
         font-size: 0.68rem;
+      }
+
+      .footer-brand {
+        width: fit-content;
+        transition: opacity 160ms ease;
+      }
+
+      .footer-brand:hover {
+        opacity: 0.68;
+      }
+
+      .footer-brand:focus-visible,
+      .social-chip:focus-visible,
+      .footer-contact:focus-visible {
+        outline: 3px solid rgba(101, 91, 79, 0.4);
+        outline-offset: 4px;
+      }
+
+      .footer-note {
+        grid-column: 1 / -1;
+        margin: -14px 0 0;
+        color: var(--muted);
+        font-size: 0.69rem;
+      }
+
+      .footer-location {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-location-icon,
+      .social-icon {
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
+        color: var(--brown);
+      }
+
+      .footer-location span,
+      .footer-socials > span {
+        display: block;
+      }
+
+      .footer-label {
+        margin-bottom: 3px;
+        color: var(--terracotta);
+        font-size: 0.65rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer-location strong {
+        display: block;
+        color: var(--ink);
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .footer-address {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.5;
+      }
+
+      .footer-contact {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--ink);
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-underline-offset: 3px;
+      }
+
+      .footer-socials {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px 12px;
+        max-width: 365px;
+      }
+
+      .footer-socials .footer-label {
+        width: 100%;
+        margin-bottom: 0;
+        text-align: right;
+      }
+
+      .social-chip {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 720;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 3px;
+        white-space: nowrap;
+        transition: text-decoration-color 160ms ease;
+      }
+
+      .social-chip:hover {
+        text-decoration-color: var(--gold);
+      }
+
+      .social-chip .social-icon {
+        width: 15px;
+        height: 15px;
       }
 
       @media (max-width: 860px) {
@@ -552,6 +668,24 @@
         .terms-sale-poster {
           width: min(100%, 360px);
           margin: 28px auto 0;
+        }
+
+        footer {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-socials {
+          grid-column: 1 / -1;
+          justify-content: flex-start;
+          max-width: none;
+        }
+
+        .footer-socials .footer-label {
+          text-align: left;
+        }
+
+        .footer-note {
+          margin-top: -7px;
         }
 
         .offer-card {
@@ -694,10 +828,22 @@
         }
 
         footer {
+          grid-template-columns: 1fr;
+          align-items: flex-start;
+          gap: 16px;
+          min-height: 0;
+          padding: 26px 0;
+        }
+
+        .footer-socials {
+          grid-column: auto;
           align-items: flex-start;
           flex-direction: column;
-          gap: 10px;
-          padding: 22px 0;
+          gap: 8px;
+        }
+
+        .social-chip {
+          white-space: normal;
         }
       }
     </style>
@@ -708,8 +854,8 @@
     <header class="container">
       <div class="wordmarks" aria-label="Participating brands">
         <strong>My Happy Home</strong>
-        <span aria-hidden="true">×</span>
-        <strong>Tsokolateria Pamana</strong>
+        <span aria-hidden="true">by</span>
+        <strong>Happy Ongpauco-Tiu</strong>
       </div>
       <a class="nav-link" href="#terms">Terms &amp; Conditions</a>
     </header>
@@ -836,12 +982,41 @@
     </main>
 
     <footer class="container">
-      <div class="wordmarks" aria-label="Participating brands">
+      <a class="footer-brand wordmarks" href="#page-title" aria-label="Back to the top of the My Happy Home Pamana Rewards page">
         <strong>My Happy Home</strong>
-        <span aria-hidden="true">×</span>
-        <strong>Tsokolateria Pamana</strong>
+        <span aria-hidden="true">by</span>
+        <strong>Happy Ongpauco-Tiu</strong>
+      </a>
+      <div class="footer-location">
+        <svg class="footer-location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+          <path d="M20 10c0 5.2-8 12-8 12S4 15.2 4 10a8 8 0 1 1 16 0Z"></path>
+          <circle cx="12" cy="10" r="2.5"></circle>
+        </svg>
+        <div>
+          <span class="footer-label">Visit My Happy Home</span>
+          <strong>My Happy Home, 3rd Floor, Greenhills Shopping Center</strong>
+          <span class="footer-address">Ortigas Ave, San Juan</span>
+          <a class="footer-contact" href="tel:+639178994279">Contact: 09178994279</a>
+        </div>
       </div>
-      <span>Subject to availability and applicable terms.</span>
+      <div class="footer-socials" aria-label="Social media">
+        <span class="footer-label">Follow us</span>
+        <a class="social-chip" href="https://www.instagram.com/my_happyhomeph?stkn=ZjJ3amo2NHRwY3l5" target="_blank" rel="noopener noreferrer">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          Instagram
+        </a>
+        <a class="social-chip" href="https://www.facebook.com/share/1DjudKjHPG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.8 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5H17V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.5V13h2.8v8h3.5Z"></path>
+          </svg>
+          Facebook
+        </a>
+      </div>
+      <span class="footer-note">Subject to availability and applicable terms.</span>
     </footer>
   </body>
 </html>
