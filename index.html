@@ -1106,7 +1106,7 @@
 
         <figure class="promo-art">
           <img
-            src="e0b401e6-a3d2-425b-a4d6-cd469992b3f9.jpg"
+            src="static/promo-breads.jpg"
             alt="My Happy Home, Pamana and Tsokolateria promotion featuring complimentary assorted breads"
           />
         </figure>
@@ -1404,10 +1404,22 @@
           resetSubmissionState();
         });
 
+        const isTrustedGoogleOrigin = (origin) => {
+          try {
+            const url = new URL(origin);
+            return (
+              url.protocol === "https:" &&
+              (url.hostname === "script.google.com" ||
+                url.hostname === "script.googleusercontent.com" ||
+                url.hostname.endsWith("-script.googleusercontent.com"))
+            );
+          } catch (_error) {
+            return false;
+          }
+        };
+
         window.addEventListener("message", (event) => {
-          const fromGoogle =
-            event.origin === "https://script.google.com" ||
-            /^https:\/\/script\.googleusercontent\.com$/.test(event.origin);
+          const fromGoogle = isTrustedGoogleOrigin(event.origin);
           const payload = event.data;
 
           if (
@@ -1474,7 +1486,7 @@
               "The registration service did not respond. Please check your connection and try again.",
               "error",
             );
-          }, 20000);
+          }, 30000);
 
           HTMLFormElement.prototype.submit.call(form);
         });
