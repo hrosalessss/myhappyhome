@@ -159,10 +159,13 @@
         align-items: center;
         justify-content: center;
         padding: 0 20px;
+        border: 0;
         border-radius: 999px;
         color: var(--paper);
         background: var(--brown);
         box-shadow: 0 7px 0 #482819;
+        cursor: pointer;
+        font-family: inherit;
         font-size: 0.88rem;
         font-weight: 800;
         transition: transform 160ms ease, box-shadow 160ms ease;
@@ -171,6 +174,200 @@
       .button:hover {
         box-shadow: 0 4px 0 #482819;
         transform: translateY(3px);
+      }
+
+      .button:disabled {
+        cursor: wait;
+        opacity: 0.66;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+        align-items: center;
+      }
+
+      .button-secondary {
+        color: var(--ink);
+        background: rgba(255, 250, 243, 0.76);
+        box-shadow: none;
+        outline: 1px solid rgba(27, 25, 22, 0.22);
+      }
+
+      .button-secondary:hover {
+        box-shadow: none;
+      }
+
+      .registration-dialog {
+        width: min(100% - 32px, 645px);
+        max-height: min(760px, calc(100dvh - 32px));
+        padding: 0;
+        overflow: auto;
+        overscroll-behavior: contain;
+        border: 0;
+        border-radius: 24px;
+        color: var(--ink);
+        background: var(--paper);
+        box-shadow: 0 24px 75px rgba(27, 25, 22, 0.38);
+      }
+
+      .registration-dialog::backdrop {
+        background: rgba(27, 25, 22, 0.66);
+        backdrop-filter: blur(3px);
+      }
+
+      .dialog-shell {
+        position: relative;
+        padding: 42px;
+      }
+
+      .dialog-shell h2 {
+        max-width: 480px;
+        margin-bottom: 10px;
+        padding-right: 30px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.35rem, 6vw, 3.2rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.98;
+      }
+
+      .dialog-copy {
+        max-width: 500px;
+        margin-bottom: 25px;
+        color: var(--muted);
+      }
+
+      .dialog-close {
+        position: absolute;
+        top: 17px;
+        right: 17px;
+        display: grid;
+        width: 35px;
+        height: 35px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+
+      .registration-form {
+        display: grid;
+        gap: 17px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 17px;
+      }
+
+      .form-field {
+        display: grid;
+        gap: 7px;
+      }
+
+      .form-field label,
+      .consent-field {
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 780;
+      }
+
+      .form-field input {
+        width: 100%;
+        min-height: 48px;
+        padding: 11px 13px;
+        border: 1px solid rgba(27, 25, 22, 0.22);
+        border-radius: 11px;
+        color: var(--ink);
+        background: #fffdf9;
+        font: inherit;
+      }
+
+      .form-field input:focus,
+      .consent-field input:focus,
+      .dialog-close:focus-visible,
+      .button:focus-visible {
+        outline: 3px solid rgba(101, 91, 79, 0.42);
+        outline-offset: 3px;
+      }
+
+      .form-field small,
+      .registration-disclaimer {
+        color: var(--muted);
+        font-size: 0.72rem;
+        line-height: 1.55;
+      }
+
+      .consent-field {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        line-height: 1.48;
+      }
+
+      .consent-field input {
+        width: 17px;
+        height: 17px;
+        margin: 2px 0 0;
+        accent-color: var(--brown);
+      }
+
+      .consent-field a {
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-underline-offset: 3px;
+      }
+
+      .form-status {
+        margin: 0;
+        padding: 11px 13px;
+        border-radius: 11px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+
+      .form-status[data-state="error"] {
+        color: #781b1b;
+        background: #fde7e3;
+      }
+
+      .form-status[data-state="success"] {
+        color: #244b34;
+        background: #e4f1e7;
+      }
+
+      .registration-disclaimer {
+        margin: 0;
+      }
+
+      .form-honeypot {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      .registration-toast {
+        width: min(1120px, calc(100% - 40px));
+        margin: 15px auto -4px;
+        padding: 12px 15px;
+        border: 1px solid rgba(31, 86, 49, 0.18);
+        border-radius: 12px;
+        color: #244b34;
+        background: #e4f1e7;
+        font-size: 0.86rem;
+        font-weight: 720;
       }
 
       .offer-card {
@@ -744,6 +941,37 @@
           font-size: 0.97rem;
         }
 
+        .hero-actions {
+          display: grid;
+        }
+
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        .dialog-shell {
+          padding: 37px 18px 24px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .registration-dialog {
+          width: calc(100% - 20px);
+          max-height: calc(100dvh - 20px);
+          border-radius: 18px;
+        }
+
+        .form-field input {
+          min-height: 50px;
+          font-size: 16px;
+        }
+
+        .registration-form .button {
+          width: 100%;
+        }
+
         .offer-card {
           min-height: 350px;
           padding: 24px;
@@ -870,12 +1098,15 @@
             (1) complimentary assorted <strong>1/2 dozen breads</strong> at Tsokolateria Pamana
             with a minimum <strong>PHP 1,500 dine-in spend</strong>.
           </p>
-          <a class="button" href="#how-to-redeem">See how to redeem</a>
+          <div class="hero-actions">
+            <button class="button" type="button" data-open-registration aria-haspopup="dialog" aria-controls="registration-dialog">Register now</button>
+            <a class="button button-secondary" href="#how-to-redeem">See how to redeem</a>
+          </div>
         </div>
 
         <figure class="promo-art">
           <img
-            src="e0b401e6-a3d2-425b-a4d6-cd469992b3f9.jpg" 
+            src="static/promo-breads.jpg"
             alt="My Happy Home, Pamana and Tsokolateria promotion featuring complimentary assorted breads"
           />
         </figure>
@@ -981,6 +1212,56 @@
 
     </main>
 
+    <dialog class="registration-dialog" id="registration-dialog" aria-labelledby="registration-title" aria-describedby="registration-description">
+      <div class="dialog-shell">
+        <a class="dialog-close" href="#page-title" data-close-registration aria-label="Close registration form">×</a>
+        <p class="kicker">Promo registration</p>
+        <h2 id="registration-title">Register your details.</h2>
+        <p class="dialog-copy" id="registration-description">Enter your name, email address, and phone number to register. Registration does not confirm reward eligibility; please bring your original official receipt when redeeming.</p>
+
+        <p class="form-status" id="registration-status" role="status" aria-live="polite" hidden></p>
+        <noscript><p class="form-status" data-state="error">JavaScript must be enabled to submit this registration form.</p></noscript>
+
+        <form
+          class="registration-form"
+          id="registration-form"
+          method="post"
+          data-endpoint="https://script.google.com/macros/s/AKfycbxvU8ll3i0OOzUCwP8FOAFgrMwULkf6jwnSDfkl9RUJNV31pZkrhH3MbScMlPRj6QEx/exec"
+        >
+          <input id="form_started_at" name="form_started_at" type="hidden" value="" />
+          <input id="submission_token" name="submission_token" type="hidden" value="" />
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="website">Leave this blank</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="full_name">Full name</label>
+              <input id="full_name" name="full_name" type="text" minlength="2" maxlength="120" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="mobile_number">Phone number</label>
+            <input id="mobile_number" name="mobile_number" type="tel" inputmode="tel" minlength="7" maxlength="30" autocomplete="tel" placeholder="09XX XXX XXXX" required />
+          </div>
+
+          <label class="consent-field" for="consent">
+            <input id="consent" name="consent" type="checkbox" value="yes" required />
+            <span>I agree to the <a href="#terms">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Notice</a>, and consent to the use of my details to administer this promotion.</span>
+          </label>
+
+          <button class="button" type="submit">Submit registration</button>
+          <p class="registration-disclaimer">Only your name, email address, phone number, and consent record are stored in the private registration sheet. Please do not submit receipt photos, IDs, or payment information.</p>
+        </form>
+      </div>
+    </dialog>
+
     <footer class="container">
       <a class="footer-brand wordmarks" href="#page-title" aria-label="Back to the top of the My Happy Home Pamana Rewards page">
         <strong>My Happy Home</strong>
@@ -1018,5 +1299,7 @@
       </div>
       <span class="footer-note">Subject to availability and applicable terms.</span>
     </footer>
+    <iframe id="registration-response-frame" name="registration-response-frame" title="Registration response" hidden></iframe>
+    <script src="static/registration.js" defer></script>
   </body>
 </html>
