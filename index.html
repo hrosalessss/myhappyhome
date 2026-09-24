@@ -20,6 +20,7 @@
         --muted: #5c554b;
         --line: rgba(27, 25, 22, 0.16);
         --radius: 20px;
+        --page-gutter: clamp(20px, 4vw, 64px);
       }
 
       * {
@@ -45,8 +46,10 @@
       }
 
       .container {
-        width: min(1120px, calc(100% - 40px));
-        margin: 0 auto;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding-inline: var(--page-gutter);
       }
 
       .topbar {
@@ -334,6 +337,7 @@
       .hero-terms-panel .terms-section > .container {
         width: 100%;
         margin: 0;
+        padding-inline: 0;
       }
 
       .hero-terms-panel .terms-layout {
@@ -584,9 +588,9 @@
       }
 
       .registration-toast {
-        width: min(1120px, calc(100% - 40px));
-        margin: 15px auto -4px;
-        padding: 12px 15px;
+        width: 100%;
+        margin: 15px 0 -4px;
+        padding: 12px var(--page-gutter);
         border: 1px solid rgba(31, 86, 49, 0.18);
         border-radius: 12px;
         color: #244b34;
@@ -767,7 +771,7 @@
       }
 
       .section {
-        padding: 95px 0;
+        padding: 95px var(--page-gutter);
       }
 
       .section-heading {
@@ -836,7 +840,7 @@
       }
 
       .reminders {
-        padding: 0 0 95px;
+        padding: 0 var(--page-gutter) 95px;
       }
 
       .reminder-grid {
@@ -1314,7 +1318,7 @@
         align-items: center;
         gap: 28px;
         min-height: 118px;
-        padding: 24px 0;
+        padding: 24px var(--page-gutter);
         color: var(--muted);
         font-size: 0.75rem;
       }
@@ -1496,8 +1500,8 @@
       }
 
       @media (max-width: 620px) {
-        .container {
-          width: min(100% - 30px, 1120px);
+        :root {
+          --page-gutter: 15px;
         }
 
         .lifestyle-showcase {
@@ -1656,7 +1660,7 @@
         }
 
         .section {
-          padding: 70px 0;
+          padding: 70px var(--page-gutter);
         }
 
         .steps {
@@ -1766,7 +1770,7 @@
           align-items: flex-start;
           gap: 16px;
           min-height: 0;
-          padding: 26px 0;
+          padding: 26px var(--page-gutter);
         }
 
         .footer-socials {
@@ -1782,8 +1786,8 @@
       }
 
       @media (max-width: 420px) {
-        .container {
-          width: calc(100% - 24px);
+        :root {
+          --page-gutter: 12px;
         }
 
         .hero {
