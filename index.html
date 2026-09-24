@@ -139,15 +139,21 @@
         mix-blend-mode: multiply;
       }
 
-      .lifestyle-title {
-        margin: 0 0 18px;
-        color: var(--brown);
-        font-size: clamp(1.9rem, 3.2vw, 3.45rem);
-        font-weight: 1000;
-        font-family: Georgia, "Times New Roman", serif;
-        letter-spacing: 0.02111em;
-        text-transform: none;
-      }
+    .lifestyle-title {
+  max-width: 650px;
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.9rem, 5.3vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+
+.lifestyle-title em {
+  color: var(--terracotta);
+  font-style: normal;
+}
 
       .lifestyle-grid {
         display: grid;
