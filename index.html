@@ -139,38 +139,35 @@
         mix-blend-mode: multiply;
       }
 
-    .lifestyle-title {
-     max-width: 650px;
-    margin-bottom: 10px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2.9rem, 5.3vw, 4.8rem);
-    font-weight: 500;
-    letter-spacing: -0.065em;
-    line-height: 0.96;
-}
+      .lifestyle-title {
+        max-width: 650px;
+        margin: 0 0 18px;
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.9rem, 5.3vw, 4.8rem);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 0.96;
+      }
 
-.lifestyle-title em {
-  color: var(--terracotta);
-  font-style: normal;
-}
+      .lifestyle-title em {
+        color: var(--terracotta);
+        font-style: normal;
+      }
 
       .lifestyle-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        align-items: center;
-        padding: 18px 0 12px;
+        gap: clamp(24px, 4vw, 64px);
+        align-items: start;
+        padding: 28px 0 24px;
       }
 
       .lifestyle-panel {
-        min-height: 180px;
+        min-height: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-      }
-
-      .lifestyle-panel:first-child {
-        transform: translateY(-70px);
+        justify-content: flex-start;
       }
 
       .lifestyle-kicker {
@@ -1524,10 +1521,6 @@
           gap: 12px;
         }
 
-        .lifestyle-panel:first-child {
-          transform: none;
-        }
-
         .topbar {
           padding: 9px 15px;
           font-size: 0.65rem;
@@ -1839,27 +1832,7 @@
         .carousel-button {
           transition: none;
         }
-      }/* Extend newbg.jpg behind the header */
-header.container {
-  position: relative;
-  z-index: 2;
-  background: transparent;
-}
-
-.lifestyle-showcase {
-  position: relative;
-  z-index: 1;
-  margin-top: -82px;
-  padding-top: 110px; /* 82px header + original 28px spacing */
-}
-
-/* Mobile adjustment */
-@media (max-width: 620px) {
-  .lifestyle-showcase {
-    margin-top: -68px;
-    padding-top: 96px;
-  }
-}
+      }
     </style>
   </head>
   <body>
@@ -1880,12 +1853,12 @@ header.container {
     <main>
       <section class="lifestyle-showcase" aria-label="My Happy Home">
         <div class="container">
-          <div class="lifestyle-logo">
-            <img src="My%20Happy%20Home.png" alt="My Happy Home" width="2048" height="2048" />
-          </div>
           <div class="lifestyle-grid">
             <div class="lifestyle-panel">
-              <p class="lifestyle-title">What's new?</p>
+              <div class="lifestyle-logo">
+                <img src="My%20Happy%20Home.png" alt="My Happy Home" width="2048" height="2048" />
+              </div>
+              <h2 class="lifestyle-title">What's <em>new?</em></h2>
               <p>My Happy Home is evolving into MY HAPPY HOME + LIFESTYLE—a curated lifestyle destination designed to help you curate life beautifully.</p>
             </div>
             <div class="lifestyle-panel">
