@@ -1832,7 +1832,27 @@
         .carousel-button {
           transition: none;
         }
-      }
+      }/* Extend newbg.jpg behind the header */
+header.container {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.lifestyle-showcase {
+  position: relative;
+  z-index: 1;
+  margin-top: -82px;
+  padding-top: 110px; /* 82px header + original 28px spacing */
+}
+
+/* Mobile adjustment */
+@media (max-width: 620px) {
+  .lifestyle-showcase {
+    margin-top: -68px;
+    padding-top: 96px;
+  }
+}
     </style>
   </head>
   <body>
