@@ -64,11 +64,14 @@
       }
 
       header {
+        position: relative;
+        z-index: 2;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
         min-height: 82px;
+        background: transparent;
       }
 
       .header-actions {
@@ -107,7 +110,10 @@
       }
 
       .lifestyle-showcase {
-        padding-top: 28px;
+        position: relative;
+        z-index: 1;
+        margin-top: -82px;
+        padding-top: 110px;
         background-color: var(--cream);
         background-image:
           linear-gradient(
@@ -144,10 +150,10 @@
         margin: 0;
         color: var(--ink);
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2rem, 3vw, 3.25rem);
+        font-size: clamp(1.35rem, 1.7vw, 1.85rem);
         font-weight: 500;
-        letter-spacing: -0.045em;
-        line-height: 1;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
       }
 
       .lifestyle-title em {
@@ -1518,6 +1524,8 @@
         }
 
         .lifestyle-showcase {
+          margin-top: -68px;
+          padding-top: 96px;
           background-image:
             linear-gradient(
               rgba(247, 239, 228, 0.92),
