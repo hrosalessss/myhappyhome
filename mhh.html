@@ -1,0 +1,2610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="My Happy Home Rewards: redeem complimentary assorted 1/2 dozen breads at Tsokolateria Pamana."
+    />
+    <title>My Happy Home Rewards</title>
+    <style>
+      :root {
+        --ink: #1b1916;
+        --brown: #1b1916;
+        --terracotta: #655b4f;
+        --gold: #d9c6ab;
+        --cream: #f2e8da;
+        --sand: #e4d4bd;
+        --paper: #fffaf3;
+        --muted: #5c554b;
+        --line: rgba(27, 25, 22, 0.16);
+        --radius: 20px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--cream);
+        font-family: "Avenir Next", Avenir, Montserrat, Inter, Arial, sans-serif;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        padding: 11px 20px;
+        color: var(--paper);
+        background: var(--brown);
+        font-size: 0.76rem;
+        font-weight: 750;
+        letter-spacing: 0.055em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .wordmarks {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        font-size: 0.8rem;
+        font-weight: 850;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+      }
+
+      .wordmarks strong {
+        color: var(--brown);
+      }
+
+      .wordmarks span {
+        color: var(--terracotta);
+        font-family: Georgia, serif;
+        font-size: 1.35rem;
+        font-weight: 400;
+      }
+
+      .nav-link {
+        padding-bottom: 3px;
+        border-bottom: 1px solid var(--terracotta);
+        color: var(--brown);
+        font-size: 0.86rem;
+        font-weight: 780;
+      }
+
+      .lifestyle-showcase {
+        padding-top: 28px;
+        background-color: var(--cream);
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(247, 239, 228, 0.62) 0%,
+            rgba(247, 239, 228, 0.7) 48%,
+            rgba(247, 239, 228, 0.84) 100%
+          ),
+          url("newbg.jpg");
+        background-size: cover;
+        background-position: center 50%;
+        background-repeat: no-repeat;
+      }
+
+      .lifestyle-logo {
+        width: min(100%, 460px);
+        height: 125px;
+        margin: 0 auto 18px 0;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      .lifestyle-logo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        mix-blend-mode: multiply;
+      }
+
+      .lifestyle-title {
+        margin: 0 0 18px;
+        color: var(--brown);
+        font-size: clamp(1.9rem, 3.2vw, 3.45rem);
+        font-weight: 1000;
+        font-family: Georgia, "Times New Roman", serif;
+        letter-spacing: 0.02111em;
+        text-transform: none;
+      }
+
+      .lifestyle-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: center;
+        padding: 18px 0 12px;
+      }
+
+      .lifestyle-panel {
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .lifestyle-panel:first-child {
+        transform: translateY(-70px);
+      }
+
+      .lifestyle-kicker {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .lifestyle-panel p {
+        margin: 0;
+        color: var(--ink);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .lifestyle-image {
+        display: none;
+        min-height: 240px;
+        border: 1px solid var(--line);
+        background-image: url("promo-breads.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+        gap: 48px;
+        align-items: center;
+        min-height: 520px;
+        padding: 40px 48px 52px;
+        overflow: hidden;
+        border-radius: 0 0 28px 28px;
+        background: linear-gradient(90deg, rgba(247, 239, 228, 0.97) 0%, rgba(247, 239, 228, 0.9) 43%, rgba(247, 239, 228, 0.2) 100%);
+      }
+
+      .kicker {
+        margin: 0 0 15px;
+        color: var(--terracotta);
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 650px;
+        margin-bottom: 10px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.9rem, 5.3vw, 4.8rem);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 0.96;
+      }
+
+      h1 em {
+        color: var(--terracotta);
+        font-style: normal;
+      }
+
+      .hero-copy {
+        max-width: 600px;
+        margin-bottom: 14px;
+        color: var(--muted);
+        font-size: 1.02rem;
+        line-height: 1.6;
+      }
+
+      .hero-terms {
+        max-width: 600px;
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-terms-panel {
+        width: 100%;
+        max-width: 600px;
+        margin: 19px 0 22px;
+        overflow: hidden;
+        border: 1px solid rgba(27, 25, 22, 0.18);
+        border-radius: 16px;
+        background: rgba(255, 250, 243, 0.9);
+        box-shadow: 0 10px 28px rgba(27, 25, 22, 0.1);
+      }
+
+      .hero-terms-panel > summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 15px 18px;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .hero-terms-panel > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .hero-terms-summary {
+        display: grid;
+        gap: 2px;
+      }
+
+      .hero-terms-summary small {
+        color: var(--terracotta);
+        font-size: 0.64rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-terms-summary strong {
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.15rem;
+        font-weight: 500;
+      }
+
+      .hero-terms-icon {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--paper);
+        background: var(--brown);
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: transform 160ms ease;
+      }
+
+      .hero-terms-panel[open] .hero-terms-icon {
+        transform: rotate(45deg);
+      }
+
+      .hero-terms-panel > summary:focus-visible {
+        outline: 3px solid rgba(101, 91, 79, 0.42);
+        outline-offset: -3px;
+      }
+
+      .hero-terms-body {
+        max-height: 390px;
+        padding: 0 18px 18px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-color: var(--terracotta) transparent;
+      }
+
+      .hero-terms-panel .terms-section {
+        padding: 0;
+        background: transparent;
+      }
+
+      .hero-terms-panel .terms-section > .container {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero-terms-panel .terms-layout {
+        display: block;
+      }
+
+      .hero-terms-panel .terms-intro {
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
+
+      .hero-terms-panel .terms-intro .kicker,
+      .hero-terms-panel .terms-intro h2 {
+        display: none;
+      }
+
+      .hero-terms-panel .terms-intro > p {
+        margin: 0 0 10px;
+      }
+
+      .hero-terms-panel .terms-list li {
+        grid-template-columns: 27px minmax(0, 1fr);
+        gap: 9px;
+        padding: 11px 0;
+        font-size: 0.76rem;
+        line-height: 1.48;
+      }
+
+      .hero-terms-panel .terms-sale-poster {
+        width: min(100%, 230px);
+        margin: 20px auto 8px;
+        border-width: 4px;
+        border-radius: 15px;
+        box-shadow: 8px 10px 0 rgba(27, 25, 22, 0.11);
+      }
+
+      .hero-copy strong {
+        color: var(--brown);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 49px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border: 0;
+        border-radius: 999px;
+        color: var(--paper);
+        background: var(--brown);
+        box-shadow: 0 7px 0 #482819;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.88rem;
+        font-weight: 800;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .button:hover {
+        box-shadow: 0 4px 0 #482819;
+        transform: translateY(3px);
+      }
+
+      .button:disabled {
+        cursor: wait;
+        opacity: 0.66;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+        align-items: center;
+      }
+
+      .button-secondary {
+        color: var(--ink);
+        background: rgba(255, 250, 243, 0.76);
+        box-shadow: none;
+        outline: 1px solid rgba(27, 25, 22, 0.22);
+      }
+
+      .button-secondary:hover {
+        box-shadow: none;
+      }
+
+      .registration-dialog {
+        width: min(100% - 32px, 645px);
+        max-height: min(760px, calc(100vh - 32px));
+        max-height: min(760px, calc(100dvh - 32px));
+        padding: 0;
+        overflow: auto;
+        overscroll-behavior: contain;
+        border: 0;
+        border-radius: 24px;
+        color: var(--ink);
+        background: var(--paper);
+        box-shadow: 0 24px 75px rgba(27, 25, 22, 0.38);
+      }
+
+      .registration-dialog::backdrop {
+        background: rgba(27, 25, 22, 0.66);
+        backdrop-filter: blur(3px);
+      }
+
+      .dialog-shell {
+        position: relative;
+        padding: 42px;
+      }
+
+      .dialog-shell h2 {
+        max-width: 480px;
+        margin-bottom: 10px;
+        padding-right: 30px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.35rem, 6vw, 3.2rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.98;
+      }
+
+      .dialog-copy {
+        max-width: 500px;
+        margin-bottom: 25px;
+        color: var(--muted);
+      }
+
+      .dialog-close {
+        position: absolute;
+        top: 17px;
+        right: 17px;
+        display: grid;
+        width: 35px;
+        height: 35px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 0;
+        font-family: inherit;
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+
+      .registration-form {
+        display: grid;
+        gap: 17px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 17px;
+      }
+
+      .form-field {
+        display: grid;
+        gap: 7px;
+      }
+
+      .form-field label,
+      .consent-field {
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 780;
+      }
+
+      .form-field input,
+      .form-field select {
+        width: 100%;
+        min-height: 48px;
+        padding: 11px 13px;
+        border: 1px solid rgba(27, 25, 22, 0.22);
+        border-radius: 11px;
+        color: var(--ink);
+        background: #fffdf9;
+        font: inherit;
+      }
+
+      .form-field input:focus,
+      .consent-field input:focus,
+      .dialog-close:focus-visible,
+      .button:focus-visible {
+        outline: 3px solid rgba(101, 91, 79, 0.42);
+        outline-offset: 3px;
+      }
+
+      .form-field small,
+      .registration-disclaimer {
+        color: var(--muted);
+        font-size: 0.72rem;
+        line-height: 1.55;
+      }
+
+      .consent-field {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        line-height: 1.48;
+      }
+
+      .consent-field input {
+        width: 17px;
+        height: 17px;
+        margin: 2px 0 0;
+        accent-color: var(--brown);
+      }
+
+      .consent-field a {
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-underline-offset: 3px;
+      }
+
+      .form-status {
+        margin: 0;
+        padding: 11px 13px;
+        border-radius: 11px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+
+      .form-status[data-state="error"] {
+        color: #781b1b;
+        background: #fde7e3;
+      }
+
+      .form-status[data-state="success"] {
+        color: #244b34;
+        background: #e4f1e7;
+      }
+
+      .registration-disclaimer {
+        margin: 0;
+      }
+
+      .form-honeypot {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      .registration-toast {
+        width: min(1120px, calc(100% - 40px));
+        margin: 15px auto -4px;
+        padding: 12px 15px;
+        border: 1px solid rgba(31, 86, 49, 0.18);
+        border-radius: 12px;
+        color: #244b34;
+        background: #e4f1e7;
+        font-size: 0.86rem;
+        font-weight: 720;
+      }
+
+      .offer-card {
+        position: relative;
+        min-height: 384px;
+        padding: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(48, 32, 22, 0.1);
+        border-radius: 28px;
+        background: var(--sand);
+        box-shadow: 15px 18px 0 rgba(107, 62, 38, 0.1);
+      }
+
+      .offer-card::before {
+        position: absolute;
+        top: -67px;
+        right: -55px;
+        width: 230px;
+        height: 230px;
+        border: 1px solid rgba(107, 62, 38, 0.12);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .offer-card::after {
+        position: absolute;
+        right: -50px;
+        bottom: -78px;
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        content: "";
+        background: rgba(233, 188, 113, 0.45);
+      }
+
+      .offer-label,
+      .offer-card h2,
+      .offer-card p,
+      .bread-art,
+      .offer-note {
+        position: relative;
+        z-index: 1;
+      }
+
+      .offer-label {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border: 1px solid rgba(48, 32, 22, 0.13);
+        border-radius: 999px;
+        color: var(--brown);
+        background: rgba(255, 253, 250, 0.62);
+        font-size: 0.67rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .offer-card h2 {
+        max-width: 305px;
+        margin-bottom: 10px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.35rem;
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.96;
+      }
+
+      .offer-card p {
+        max-width: 285px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.6;
+      }
+
+      .bread-art {
+        position: absolute;
+        right: 30px;
+        bottom: 34px;
+        width: 150px;
+        height: 92px;
+        border-radius: 50% 50% 42% 42% / 65% 65% 37% 37%;
+        background: #c77b42;
+        box-shadow: inset -17px -10px 0 rgba(111, 56, 26, 0.16), 0 12px 0 rgba(107, 62, 38, 0.12);
+        transform: rotate(-8deg);
+      }
+
+      .bread-art::before,
+      .bread-art::after {
+        position: absolute;
+        top: 21px;
+        width: 37px;
+        height: 11px;
+        border-top: 5px solid #f2c87c;
+        border-radius: 50%;
+        content: "";
+        transform: rotate(-22deg);
+      }
+
+      .bread-art::before {
+        left: 26px;
+      }
+
+      .bread-art::after {
+        left: 72px;
+      }
+
+      .offer-note {
+        position: absolute;
+        bottom: 24px;
+        left: 28px;
+        color: var(--brown);
+        font-size: 0.72rem;
+        font-weight: 760;
+      }
+
+      .promo-art {
+        width: min(100%, 365px);
+        margin: 0 0 0 auto;
+        overflow: hidden;
+        border: 1px solid rgba(48, 32, 22, 0.12);
+        border-radius: 24px;
+        background: var(--sand);
+        box-shadow: 15px 18px 0 rgba(107, 62, 38, 0.1);
+      }
+
+      .promo-art img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .overview {
+        padding: 60px 0 70px;
+        background: var(--brown);
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        overflow: hidden;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .overview-item {
+        padding: 29px 28px;
+        color: var(--paper);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .overview-item span {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .overview-item strong {
+        display: block;
+        max-width: 235px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.48rem;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        line-height: 1.08;
+      }
+
+      .section {
+        padding: 95px 0;
+      }
+
+      .section-heading {
+        max-width: 620px;
+        margin-bottom: 39px;
+      }
+
+      .section-heading h2,
+      .terms-intro h2 {
+        margin-bottom: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.35rem, 4vw, 3.5rem);
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 1;
+      }
+
+      .section-heading p:not(.kicker) {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+
+      .step {
+        min-height: 237px;
+        padding: 23px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+      }
+
+      .step-number {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        margin-bottom: 42px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--paper);
+        background: var(--terracotta);
+        font-size: 0.76rem;
+        font-weight: 850;
+      }
+
+      .step h3 {
+        margin-bottom: 8px;
+        color: var(--brown);
+        font-size: 0.84rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.65;
+      }
+
+      .reminders {
+        padding: 0 0 95px;
+      }
+
+      .reminder-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--sand);
+      }
+
+      .reminder {
+        padding: 27px 25px;
+      }
+
+      .reminder + .reminder {
+        border-left: 1px solid var(--line);
+      }
+
+      .reminder strong {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--brown);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+      }
+
+      .reminder p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+
+      .terms-section {
+        padding: 82px 0 96px;
+        background: #e9ddcc;
+      }
+
+      .terms-layout {
+        display: grid;
+        grid-template-columns: 0.74fr 1.26fr;
+        gap: 70px;
+      }
+
+      .terms-intro {
+        color: var(--muted);
+        font-size: 0.91rem;
+        line-height: 1.7;
+      }
+
+      .terms-intro h2 {
+        color: var(--ink);
+      }
+
+      .terms-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: terms;
+      }
+
+      .terms-list li {
+        display: grid;
+        grid-template-columns: 31px 1fr;
+        gap: 12px;
+        padding: 17px 0;
+        border-top: 1px solid var(--line);
+        color: #5e5147;
+        font-size: 0.86rem;
+        line-height: 1.6;
+        counter-increment: terms;
+      }
+
+      .terms-list li::before {
+        content: counter(terms, decimal-leading-zero);
+        color: var(--terracotta);
+        font-size: 0.7rem;
+        font-weight: 850;
+        letter-spacing: 0.05em;
+      }
+
+      .terms-list li:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .terms-sale-poster {
+        width: min(100%, 325px);
+        margin: 30px 0 0;
+        overflow: hidden;
+        border: 6px solid var(--paper);
+        border-radius: 22px;
+        background: var(--paper);
+        box-shadow: 14px 17px 0 rgba(27, 25, 22, 0.13);
+      }
+
+      .terms-sale-poster img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .sales-events {
+        padding: 88px 0 92px;
+        color: var(--paper);
+        background: var(--brown);
+      }
+
+      .sales-events-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 30px;
+      }
+
+      .sales-events-heading {
+        max-width: 660px;
+      }
+
+      .sales-events .kicker {
+        color: var(--gold);
+      }
+
+      .sales-events h2 {
+        margin: 0 0 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.45rem, 5vw, 4.25rem);
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 0.98;
+      }
+
+      .sales-events-intro {
+        max-width: 570px;
+        margin: 0;
+        color: rgba(255, 250, 243, 0.72);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .carousel-controls {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .carousel-status {
+        min-width: 66px;
+        margin: 0 8px 0 0;
+        color: rgba(255, 250, 243, 0.62);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-align: center;
+      }
+
+      .carousel-status strong {
+        color: var(--paper);
+      }
+
+      .carousel-button {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        place-items: center;
+        border: 1px solid rgba(255, 250, 243, 0.3);
+        border-radius: 50%;
+        color: var(--paper);
+        background: transparent;
+        cursor: pointer;
+        transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+      }
+
+      .carousel-button:hover {
+        color: var(--brown);
+        background: var(--paper);
+        transform: translateY(-2px);
+      }
+
+      .carousel-button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      .carousel-button svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      .sales-events-viewport {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: 20px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        border-radius: 24px;
+        scroll-behavior: smooth;
+        scroll-snap-type: inline mandatory;
+        scrollbar-width: none;
+      }
+
+      .sales-events-viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .sales-events-viewport:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 5px;
+      }
+
+      .sales-event-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.94fr);
+        min-height: 405px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 250, 243, 0.2);
+        border-radius: 24px;
+        color: var(--ink);
+        background: var(--paper);
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+      }
+
+      .sales-event-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(34px, 6vw, 72px);
+      }
+
+      .sales-event-type {
+        display: inline-flex;
+        align-items: center;
+        min-height: 29px;
+        margin-bottom: 21px;
+        padding: 5px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--brown);
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .sales-event-card h3 {
+        max-width: 560px;
+        margin: 0 0 17px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.1rem, 4vw, 3.7rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.99;
+      }
+
+      .sales-event-card p {
+        max-width: 530px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .sales-event-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 27px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--ink);
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .sales-event-link:hover {
+        border-bottom-color: var(--gold);
+      }
+
+      .sales-event-link:focus-visible {
+        outline: 3px solid rgba(101, 91, 79, 0.4);
+        outline-offset: 5px;
+      }
+
+      .sale-event-visual {
+        display: grid;
+        min-height: 405px;
+        padding: 38px;
+        place-items: center;
+        background:
+          linear-gradient(135deg, rgba(255, 250, 243, 0.08), transparent 55%),
+          var(--brown);
+      }
+
+      .sale-ticket {
+        display: grid;
+        width: min(100%, 310px);
+        min-height: 295px;
+        padding: 34px 26px;
+        place-content: center;
+        border: 1px solid rgba(255, 250, 243, 0.36);
+        color: var(--paper);
+        text-align: center;
+        transform: rotate(2.5deg);
+        box-shadow: 15px 15px 0 rgba(217, 198, 171, 0.14);
+      }
+
+      .sale-ticket span,
+      .sale-ticket small {
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .sale-ticket strong {
+        display: block;
+        margin: 4px 0 2px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(5.4rem, 10vw, 8rem);
+        font-weight: 500;
+        letter-spacing: -0.09em;
+        line-height: 0.86;
+      }
+
+      .sale-ticket small {
+        display: block;
+        margin-top: 15px;
+        color: var(--gold);
+        font-size: 0.62rem;
+      }
+
+      .sales-event-photo {
+        position: relative;
+        min-height: 405px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--sand);
+      }
+
+      .sales-event-photo::after {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(27, 25, 22, 0.13), transparent 38%);
+        content: "";
+        pointer-events: none;
+      }
+
+      .sales-event-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .sale-event-visual img,
+      .catalog-event-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .catalog-event-visual {
+        display: grid;
+        min-height: 405px;
+        padding: 38px;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(255, 250, 243, 0.85), transparent 33%),
+          var(--sand);
+      }
+
+      .catalog-stack {
+        position: relative;
+        width: min(72%, 285px);
+        aspect-ratio: 3 / 4;
+      }
+
+      .catalog-sheet {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(27, 25, 22, 0.18);
+        background: var(--paper);
+        box-shadow: 0 22px 44px rgba(27, 25, 22, 0.16);
+      }
+
+      .catalog-sheet-back {
+        background: #d6c2a7;
+        transform: translate(-24px, 15px) rotate(-6deg);
+      }
+
+      .catalog-sheet-middle {
+        background: #f4eadc;
+        transform: translate(20px, 10px) rotate(5deg);
+      }
+
+      .catalog-cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 2;
+        padding: 28px;
+        color: var(--paper);
+        background: var(--brown);
+        transform: rotate(-1deg);
+      }
+
+      .catalog-cover > span,
+      .catalog-cover > small {
+        font-size: 0.64rem;
+        font-weight: 850;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .catalog-cover strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.7rem, 5vw, 4.1rem);
+        font-weight: 500;
+        letter-spacing: -0.07em;
+        line-height: 0.9;
+      }
+
+      .catalog-cover > small {
+        color: var(--gold);
+        line-height: 1.55;
+      }
+
+      .catalog-lines {
+        display: grid;
+        gap: 7px;
+        margin: 25px 0;
+      }
+
+      .catalog-lines span {
+        display: block;
+        height: 1px;
+        background: rgba(255, 250, 243, 0.3);
+      }
+
+      .catalog-lines span:nth-child(2) {
+        width: 76%;
+      }
+
+      .catalog-lines span:nth-child(3) {
+        width: 52%;
+      }
+
+      .carousel-hint {
+        margin: 16px 0 0;
+        color: rgba(255, 250, 243, 0.56);
+        font-size: 0.72rem;
+        letter-spacing: 0.03em;
+        text-align: right;
+      }
+
+      footer {
+        display: grid;
+        grid-template-columns: 0.8fr 1.25fr 0.85fr;
+        align-items: center;
+        gap: 28px;
+        min-height: 118px;
+        padding: 24px 0;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      footer .wordmarks {
+        font-size: 0.68rem;
+      }
+
+      .footer-brand {
+        width: fit-content;
+        transition: opacity 160ms ease;
+      }
+
+      .footer-brand:hover {
+        opacity: 0.68;
+      }
+
+      .footer-brand:focus-visible,
+      .social-chip:focus-visible,
+      .footer-contact:focus-visible {
+        outline: 3px solid rgba(101, 91, 79, 0.4);
+        outline-offset: 4px;
+      }
+
+      .footer-note {
+        grid-column: 1 / -1;
+        margin: -14px 0 0;
+        color: var(--muted);
+        font-size: 0.69rem;
+      }
+
+      .footer-location {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-location-icon,
+      .social-icon {
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
+        color: var(--brown);
+      }
+
+      .footer-location span,
+      .footer-socials > span {
+        display: block;
+      }
+
+      .footer-label {
+        margin-bottom: 3px;
+        color: var(--terracotta);
+        font-size: 0.65rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer-location strong {
+        display: block;
+        color: var(--ink);
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .footer-address {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.5;
+      }
+
+      .footer-contact {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--ink);
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-underline-offset: 3px;
+      }
+
+      .footer-socials {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px 12px;
+        max-width: 365px;
+      }
+
+      .footer-socials .footer-label {
+        width: 100%;
+        margin-bottom: 0;
+        text-align: right;
+      }
+
+      .social-chip {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 720;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 3px;
+        white-space: nowrap;
+        transition: text-decoration-color 160ms ease;
+      }
+
+      .social-chip:hover {
+        text-decoration-color: var(--gold);
+      }
+
+      .social-chip .social-icon {
+        width: 15px;
+        height: 15px;
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .terms-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .sales-event-card {
+          grid-template-columns: minmax(0, 1fr) minmax(250px, 0.82fr);
+        }
+
+        .sales-event-copy {
+          padding: 42px;
+        }
+
+        .hero {
+          gap: 35px;
+          min-height: auto;
+          padding: 56px 34px;
+          background-position: center, 61% center;
+        }
+
+        .terms-sale-poster {
+          width: min(100%, 360px);
+          margin: 28px auto 0;
+        }
+
+        footer {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-socials {
+          grid-column: 1 / -1;
+          justify-content: flex-start;
+          max-width: none;
+        }
+
+        .footer-socials .footer-label {
+          text-align: left;
+        }
+
+        .footer-note {
+          margin-top: -7px;
+        }
+
+        .offer-card {
+          width: min(100%, 520px);
+        }
+
+        .promo-art {
+          margin-left: 0;
+        }
+
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .container {
+          width: min(100% - 30px, 1120px);
+        }
+
+        .lifestyle-showcase {
+          background-image:
+            linear-gradient(
+              rgba(247, 239, 228, 0.92),
+              rgba(247, 239, 228, 0.92)
+            ),
+            url("newbg(1).jpg");
+          background-position: 48% center;
+        }
+
+        .lifestyle-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .lifestyle-panel:first-child {
+          transform: none;
+        }
+
+        .topbar {
+          padding: 9px 15px;
+          font-size: 0.65rem;
+          line-height: 1.45;
+        }
+
+        header {
+          min-height: 68px;
+        }
+
+        .wordmarks {
+          gap: 8px;
+          font-size: 0.61rem;
+          letter-spacing: 0.035em;
+        }
+
+        .wordmarks span {
+          font-size: 1rem;
+        }
+
+        .nav-link {
+          display: none;
+        }
+
+        .hero {
+          padding: 47px 23px 55px;
+          border-radius: 0 0 22px 22px;
+          background-position: center, 64% center;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 15vw, 4rem);
+        }
+
+        .hero-copy {
+          font-size: 0.97rem;
+        }
+
+        .hero-terms-panel {
+          margin-top: 17px;
+        }
+
+        .hero-terms-panel > summary {
+          padding: 14px;
+        }
+
+        .hero-terms-body {
+          max-height: 55vh;
+          padding: 0 14px 15px;
+        }
+
+        .hero-terms-panel .terms-list li {
+          grid-template-columns: 25px minmax(0, 1fr);
+          font-size: 0.74rem;
+        }
+
+        .hero-actions {
+          display: grid;
+        }
+
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        .dialog-shell {
+          padding: 37px 18px 24px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .registration-dialog {
+          width: calc(100% - 20px);
+          max-height: calc(100vh - 20px);
+          max-height: calc(100dvh - 20px);
+          border-radius: 18px;
+        }
+
+        .form-field input,
+        .form-field select {
+          min-height: 50px;
+          font-size: 16px;
+        }
+
+        .registration-form .button {
+          width: 100%;
+        }
+
+        .offer-card {
+          min-height: 350px;
+          padding: 24px;
+        }
+
+        .promo-art {
+          width: min(100%, 440px);
+          margin: 0;
+        }
+
+        .offer-card h2 {
+          max-width: 270px;
+          font-size: 2.05rem;
+        }
+
+        .bread-art {
+          right: 19px;
+          bottom: 31px;
+          transform: scale(0.85) rotate(-8deg);
+          transform-origin: bottom right;
+        }
+
+        .offer-note {
+          bottom: 22px;
+          left: 24px;
+          max-width: 136px;
+        }
+
+        .overview {
+          padding: 35px 0;
+        }
+
+        .overview-grid,
+        .reminder-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .overview-item,
+        .reminder {
+          padding: 23px;
+        }
+
+        .reminder + .reminder {
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .step {
+          min-height: auto;
+        }
+
+        .step-number {
+          margin-bottom: 25px;
+        }
+
+        .reminders {
+          padding-bottom: 70px;
+        }
+
+        .terms-section {
+          padding: 65px 0 70px;
+        }
+
+        .terms-layout {
+          gap: 30px;
+        }
+
+        .terms-sale-poster {
+          width: min(100%, 340px);
+          margin-top: 24px;
+          border-width: 4px;
+          border-radius: 17px;
+          box-shadow: 9px 11px 0 rgba(27, 25, 22, 0.13);
+        }
+
+        .sales-events {
+          padding: 64px 0 68px;
+        }
+
+        .sales-events-header {
+          display: grid;
+          gap: 23px;
+          margin-bottom: 24px;
+        }
+
+        .sales-events h2 {
+          font-size: clamp(2.65rem, 14vw, 3.65rem);
+        }
+
+        .carousel-controls {
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .carousel-status {
+          margin-right: auto;
+          text-align: left;
+        }
+
+        .carousel-button {
+          width: 44px;
+          height: 44px;
+        }
+
+        .sales-event-card {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          border-radius: 20px;
+        }
+
+        .sales-event-copy {
+          min-height: 330px;
+          padding: 33px 25px 36px;
+        }
+
+        .sales-event-card h3 {
+          font-size: clamp(2.25rem, 12vw, 3rem);
+        }
+
+        .sale-event-visual,
+        .sales-event-photo,
+        .catalog-event-visual {
+          min-height: 285px;
+        }
+
+        .sale-event-visual {
+          padding: 30px;
+        }
+
+        .sale-ticket {
+          min-height: 230px;
+        }
+
+        .catalog-event-visual {
+          padding: 34px;
+        }
+
+        .catalog-stack {
+          width: min(68%, 245px);
+        }
+
+        .carousel-hint {
+          text-align: left;
+        }
+
+        footer {
+          grid-template-columns: 1fr;
+          align-items: flex-start;
+          gap: 16px;
+          min-height: 0;
+          padding: 26px 0;
+        }
+
+        .footer-socials {
+          grid-column: auto;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .social-chip {
+          white-space: normal;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .container {
+          width: calc(100% - 24px);
+        }
+
+        .hero {
+          padding: 38px 17px 44px;
+        }
+
+        header {
+          gap: 12px;
+        }
+
+        header .wordmarks span,
+        header .wordmarks strong:last-child {
+          display: none;
+        }
+
+        .header-actions {
+          gap: 10px;
+        }
+
+        .header-actions .button {
+          padding: 11px 13px;
+          font-size: 0.7rem;
+        }
+
+        h1 {
+          font-size: clamp(2.65rem, 14vw, 3.4rem);
+        }
+
+        .dialog-shell {
+          padding: 34px 14px 20px;
+        }
+
+        .registration-dialog {
+          width: calc(100% - 12px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html,
+        .sales-events-viewport {
+          scroll-behavior: auto;
+        }
+
+        .carousel-button {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar" id="top">MY HAPPY HOME EXCLUSIVES</div>
+
+    <header class="container">
+      <div class="wordmarks" aria-label="Participating brands">
+        <strong>My Happy Home</strong>
+        <span aria-hidden="true">by</span>
+        <strong>Happy Ongpauco-Tiu</strong>
+      </div>
+      <div class="header-actions">
+        <a class="nav-link" href="#terms" data-open-terms>Terms &amp; Conditions</a>
+        <button class="button" type="button" data-open-registration aria-haspopup="dialog" aria-controls="registration-dialog">Register Now</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="container lifestyle-showcase" aria-label="My Happy Home">
+        <div class="lifestyle-logo">
+          <img src="My%20Happy%20Home.png" alt="My Happy Home" width="2048" height="2048" />
+        </div>
+        <div class="lifestyle-grid">
+          <div class="lifestyle-panel">
+            <p class="lifestyle-title">What's new?</p>
+            <p>My Happy Home is evolving into MY HAPPY HOME + LIFESTYLE—a curated lifestyle destination designed to help you curate life beautifully.</p>
+          </div>
+          <div class="lifestyle-panel">
+            <p>Expanding into 16 thoughtfully curated categories, we are bringing together more local and international brands across kitchen and dining, scents, beauty, fashion, bags, jewelry, home collections, and table stories. Each piece is selected for its quality, craftsmanship, timeless design, and ability to bring beauty and meaning into everyday living.</p>
+            <p>More than a retail space, MY HAPPY HOME + LIFESTYLE is a destination for discovery and inspiration—a place to find beautiful pieces that reflect your personal style, celebrate artisans and makers, and make every part of life feel more curated.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container hero" aria-labelledby="page-title">
+        <div>
+          <p class="kicker">Thank you for shopping with us</p>
+          <h1 id="page-title">Shop, dine, and enjoy a <em>bread treat.</em></h1>
+          <p class="hero-copy">
+            Spend <strong>PHP 10,000</strong> at My Happy Home in one transaction and enjoy one
+            (1) complimentary assorted <strong>1/2 dozen breads</strong> at Tsokolateria Pamana.
+          </p>
+          <details class="hero-terms-panel" id="terms">
+            <summary>
+              <span class="hero-terms-summary">
+                <small>Please read</small>
+                <strong>Terms &amp; Conditions</strong>
+              </span>
+              <span class="hero-terms-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="hero-terms-body">
+          <section class="terms-section" aria-labelledby="terms-title">
+        <div class="container terms-layout">
+          <div class="terms-intro">
+            <p class="kicker">Please read</p>
+            <h2 id="terms-title">Terms &amp; Conditions</h2>
+            <p>By participating in this promotion, you agree to the following conditions.</p>
+</div>
+
+          <ol class="terms-list">
+            <li>Eligibility requires a minimum PHP 10,000 purchase at My Happy Home in one single transaction.</li>
+            <li>The original official receipt is required as proof of purchase and must be presented upon redemption.</li>
+            <li>Each qualified receipt is valid for one (1) redemption only and entitles the holder to one (1) complimentary assorted 1/2 dozen breads.</li>
+            <li>Redemption requires a minimum PHP 1,500 dine-in spend at Tsokolateria Pamana, net of discounts.</li>
+            <li>The qualified receipt may be redeemed only within the month stated on the receipt or applicable promo material.</li>
+            <li>Upon redemption, the receipt will be marked “REDEEMED” or collected to prevent multiple use.</li>
+            <li>The reward is non-transferable, non-refundable, and not convertible to cash, credit, or another product.</li>
+            <li>The offer may not be combined with other promotions or discounts, subject to applicable laws and regulations.</li>
+            <li>The bread assortment is subject to availability. An equivalent assortment may be provided when necessary.</li>
+            <li>Management reserves the right to verify eligibility and to amend, suspend, or terminate the promotion when necessary, subject to applicable laws and regulations.</li>
+          </ol>
+        </div>
+        </section>
+            </div>
+          </details>
+          <div class="hero-actions">
+            <a class="button button-secondary" href="#how-to-redeem">See how to redeem</a>
+          </div>
+        </div>
+
+        <figure class="promo-art">
+          <img
+            src="qrpromo.jpg"
+            alt="My Happy Home, Pamana and Tsokolateria promotion featuring complimentary assorted breads"
+            width="1131"
+            height="1600"
+          />
+        </figure>
+      </section>
+<section class="container section" id="how-to-redeem" aria-labelledby="redeem-title">
+        <div class="section-heading">
+          <p class="kicker">How to redeem</p>
+          <h2 id="redeem-title">Four simple steps.</h2>
+          <p>Please bring the original My Happy Home official receipt when you dine at Tsokolateria Pamana Greenhills.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">1</span>
+            <h3>Shop</h3>
+            <p>Spend at least PHP 10,000 at My Happy Home in a single transaction.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">2</span>
+            <h3>Keep</h3>
+            <p>Keep the original official receipt. Split bills, combined receipts, and accumulated purchases are not accepted.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">3</span>
+            <h3>Dine</h3>
+            <p>Dine at Tsokolateria Pamana and spend at least PHP 1,500, net of discounts.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">4</span>
+            <h3>Redeem</h3>
+            <p>Present the original My Happy Home receipt and receive one (1) complimentary assorted 1/2 dozen breads.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container reminders" aria-labelledby="reminder-title">
+        <div class="section-heading">
+          <p class="kicker">Important reminders</p>
+          <h2 id="reminder-title">Please keep these in mind.</h2>
+        </div>
+        <div class="reminder-grid">
+          <article class="reminder">
+            <strong>Original receipt required</strong>
+            <p>Your My Happy Home official receipt must be presented upon redemption.</p>
+          </article>
+          <article class="reminder">
+            <strong>One receipt, one reward</strong>
+            <p>Each qualified receipt is valid for one redemption only.</p>
+          </article>
+          <article class="reminder">
+            <strong>Redeem within the month</strong>
+            <p>The receipt is valid only within the month stated on it or on applicable promo material.</p>
+          </article>
+        </div>
+      </section>
+<section class="sales-events" aria-labelledby="sales-events-title">
+        <div class="container">
+          <div class="sales-events-header">
+            <div class="sales-events-heading">
+              <p class="kicker">Discover what’s happening</p>
+              <h2 id="sales-events-title">Sales &amp; Promos, Events &amp; Catalog</h2>
+              <p class="sales-events-intro">Explore current offers, special experiences, and curated collections from My Happy Home.</p>
+            </div>
+
+            <div class="carousel-controls" aria-label="Sales, events, and catalog carousel controls">
+              <p class="carousel-status" aria-live="off" aria-atomic="true">
+                <strong id="sales-events-current">01</strong>
+                <span aria-hidden="true"> / </span>
+                <span id="sales-events-total">03</span>
+              </p>
+              <button class="carousel-button" type="button" data-carousel-prev aria-controls="sales-events-carousel" aria-label="Show previous promotion">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m15 18-6-6 6-6"></path>
+                </svg>
+              </button>
+              <button class="carousel-button" type="button" data-carousel-autoplay aria-controls="sales-events-carousel" aria-label="Pause automatic slide rotation" aria-pressed="false">
+                <svg data-carousel-pause-icon viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <rect x="7" y="5" width="3.5" height="14" rx="1"></rect>
+                  <rect x="13.5" y="5" width="3.5" height="14" rx="1"></rect>
+                </svg>
+                <svg data-carousel-play-icon viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden>
+                  <path d="m8 5 11 7-11 7V5Z"></path>
+                </svg>
+              </button>
+              <button class="carousel-button" type="button" data-carousel-next aria-controls="sales-events-carousel" aria-label="Show next promotion">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="sales-events-viewport"
+            id="sales-events-carousel"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Current sales, events, and catalog"
+            tabindex="0"
+          >
+            <article class="sales-event-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 3: Sales and Promos">
+              <div class="sales-event-copy">
+                <span class="sales-event-type">Sales &amp; Promos</span>
+                <h3>Sales &amp; Promos</h3>
+                <p>Create your own bundles and enjoy special discounts this Ber Months. Stay tuned for exciting seasonal offers!</p>
+              </div>
+              <div class="sale-event-visual" aria-hidden="true">
+                <img src="newsale.jpg" alt="" width="1092" height="1440" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="sales-event-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 3: Events" aria-hidden="true" inert>
+              <div class="sales-event-copy">
+                <span class="sales-event-type">Event</span>
+                <h3>Events</h3>
+                <p>Watch out for upcoming launches, pop-ups, collaborations, and exclusive My Happy Home experiences.</p>
+                <a class="sales-event-link" href="#how-to-redeem">
+                  View redemption steps
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <figure class="sales-event-photo" aria-hidden="true">
+                <img src="event.jpg" alt="" width="1127" height="1396" loading="lazy" />
+              </figure>
+            </article>
+
+            <article class="sales-event-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 3: Catalog" aria-hidden="true" inert>
+              <div class="sales-event-copy">
+                <span class="sales-event-type">Catalog</span>
+                <h3>Catalog</h3>
+                <p>Request our latest catalog and discover beautiful pieces for your Christmas wishlist, business, hotel, or restaurant.</p>
+              </div>
+              <div class="catalog-event-visual" aria-hidden="true">
+                <img src="catalog.jpg" alt="" width="1080" height="1350" loading="lazy" />
+              </div>
+            </article>
+          </div>
+
+          <p class="carousel-hint">Slides advance automatically. Swipe, use the arrow keys, or select the controls to explore.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <dialog class="registration-dialog" id="registration-dialog" aria-labelledby="registration-title" aria-describedby="registration-description">
+      <div class="dialog-shell">
+        <button class="dialog-close" type="button" data-close-registration aria-label="Close registration form">×</button>
+        <p class="kicker">Promo registration</p>
+        <h2 id="registration-title">Register your details.</h2>
+        <p class="dialog-copy" id="registration-description">Enter your name, email address, and phone number to register. Registration does not confirm reward eligibility; please bring your original official receipt when redeeming.</p>
+
+        <p class="form-status" id="registration-status" role="status" aria-live="polite" hidden></p>
+        <noscript><p class="form-status" data-state="error">JavaScript must be enabled to submit this registration form.</p></noscript>
+
+        <form
+          class="registration-form"
+          id="registration-form"
+          method="post"
+          data-endpoint="https://script.google.com/macros/s/AKfycbxvU8ll3i0OOzUCwP8FOAFgrMwULkf6jwnSDfkl9RUJNV31pZkrhH3MbScMlPRj6QEx/exec"
+        >
+          <input id="form_started_at" name="form_started_at" type="hidden" value="" />
+          <input id="submission_token" name="submission_token" type="hidden" value="" />
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="website">Leave this blank</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="full_name">Full name</label>
+              <input id="full_name" name="full_name" type="text" minlength="2" maxlength="120" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="mobile_number">Phone number</label>
+            <input id="mobile_number" name="mobile_number" type="tel" inputmode="tel" minlength="7" maxlength="30" autocomplete="tel" placeholder="09XX XXX XXXX" required />
+          </div>
+
+          <div class="form-field">
+              <label for="inquiry_type">Type of transaction</label>
+              <select id="inquiry_type" name="inquiry_type" required>
+               <option value="" selected disabled>Select a transaction type</option>
+               <option value="event">Event</option>
+               <option value="inquiry">Inquiry</option>
+               <option value="catalog">Catalog</option>
+              </select>
+          </div>
+
+          <label class="consent-field" for="consent">
+            <input id="consent" name="consent" type="checkbox" value="yes" required />
+            <span>I agree to the <a href="index.html#terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Notice</a>, and consent to the use of my details to administer this promotion.</span>
+          </label>
+
+          <button class="button" type="submit">Submit registration</button>
+          <p class="registration-disclaimer">Only your name, email address, phone number, selected transaction type, and consent record are stored in the private registration sheet. Please do not submit receipt photos, IDs, or payment information.</p>
+        </form>
+      </div>
+    </dialog>
+
+    <footer class="container">
+      <a class="footer-brand wordmarks" href="#top" aria-label="Back to the top of the My Happy Home Pamana Rewards page">
+        <strong>My Happy Home</strong>
+        <span aria-hidden="true">by</span>
+        <strong>Happy Ongpauco-Tiu</strong>
+      </a>
+      <div class="footer-location">
+        <svg class="footer-location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+          <path d="M20 10c0 5.2-8 12-8 12S4 15.2 4 10a8 8 0 1 1 16 0Z"></path>
+          <circle cx="12" cy="10" r="2.5"></circle>
+        </svg>
+        <div>
+          <span class="footer-label">Visit My Happy Home</span>
+          <strong>My Happy Home, 3rd Floor, Greenhills Shopping Center</strong>
+          <strong>My Happy Home Caf&eacute;, Rustan&rsquo;s Makati, 4th Floor</strong>
+          <span class="footer-address">Ortigas Ave, San Juan</span>
+          <a class="footer-contact" href="tel:+639178994279">Contact: 09178994279</a>
+        </div>
+      </div>
+      <div class="footer-socials" aria-label="Social media">
+        <span class="footer-label">Follow us</span>
+        <a class="social-chip" href="https://www.facebook.com/share/1DjudKjHPG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.8 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5H17V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.5V13h2.8v8h3.5Z"></path>
+          </svg>
+          Facebook
+        </a>
+        <a class="social-chip" href="https://www.instagram.com/my_happyhomeph?stkn=ZjJ3amo2NHRwY3l5" target="_blank" rel="noopener noreferrer">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          Instagram
+        </a>
+      </div>
+      <span class="footer-note">Subject to availability and applicable terms.</span>
+    </footer>
+    <iframe id="registration-response-frame" name="registration-response-frame" title="Registration response" hidden></iframe>
+    <script>
+      (() => {
+        const dialog = document.getElementById("registration-dialog");
+        const form = document.getElementById("registration-form");
+        const status = document.getElementById("registration-status");
+        const responseFrame = document.getElementById("registration-response-frame");
+        const startedAt = document.getElementById("form_started_at");
+        const submissionToken = document.getElementById("submission_token");
+
+        if (!dialog || !form || !status || !responseFrame || !startedAt || !submissionToken) return;
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonLabel = submitButton?.textContent || "Submit registration";
+        let activeToken = "";
+        let responseTimeout;
+
+        const setStatus = (message, state) => {
+          status.textContent = message;
+          status.dataset.state = state;
+          status.setAttribute("role", state === "error" ? "alert" : "status");
+          status.hidden = false;
+        };
+
+        const clearStatus = () => {
+          status.textContent = "";
+          status.hidden = true;
+          delete status.dataset.state;
+          status.setAttribute("role", "status");
+        };
+
+        const setSubmitting = (submitting) => {
+          if (!submitButton) return;
+          submitButton.disabled = submitting;
+          submitButton.toggleAttribute("aria-busy", submitting);
+          submitButton.textContent = submitting ? "Submitting…" : originalButtonLabel;
+        };
+
+        const resetSubmissionState = () => {
+          window.clearTimeout(responseTimeout);
+          activeToken = "";
+          setSubmitting(false);
+        };
+
+        const openDialog = () => {
+          clearStatus();
+
+          if (typeof dialog.showModal === "function") {
+            if (dialog.open) dialog.close();
+            dialog.showModal();
+          } else {
+            dialog.setAttribute("open", "");
+          }
+
+          if (startedAt) startedAt.value = String(Date.now());
+          window.setTimeout(() => document.getElementById("full_name")?.focus(), 50);
+        };
+
+        const closeDialog = () => {
+          if (typeof dialog.close === "function") {
+            dialog.close();
+          } else {
+            dialog.removeAttribute("open");
+            form.reset();
+            clearStatus();
+            resetSubmissionState();
+          }
+        };
+
+        const configuredEndpoint = () => {
+          const endpoint = (form.dataset.endpoint || "").trim();
+          const valid = /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(endpoint);
+          return valid ? endpoint : "";
+        };
+
+        const createSubmissionToken = () => {
+          if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+          const randomPart = Math.random().toString(36).slice(2);
+          return `${Date.now()}-${randomPart}-${randomPart}`;
+        };
+
+        document.querySelectorAll("[data-open-registration]").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            openDialog();
+          });
+        });
+
+        document.querySelectorAll("[data-close-registration]").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            closeDialog();
+          });
+        });
+
+        document.querySelectorAll("[data-open-terms]").forEach((link) => {
+          link.addEventListener("click", (event) => {
+            const terms = document.getElementById("terms");
+            if (!terms) return;
+
+            event.preventDefault();
+            if (dialog.open) closeDialog();
+            if (terms instanceof HTMLDetailsElement) terms.open = true;
+
+            window.setTimeout(() => {
+              const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+              terms.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+              terms.querySelector("summary")?.focus({ preventScroll: true });
+            }, 0);
+          });
+        });
+
+        const openTermsFromHash = () => {
+          if (window.location.hash !== "#terms") return;
+          const terms = document.getElementById("terms");
+          if (!(terms instanceof HTMLDetailsElement)) return;
+          terms.open = true;
+          window.setTimeout(() => terms.scrollIntoView({ block: "start" }), 0);
+        };
+
+        window.addEventListener("hashchange", openTermsFromHash);
+        openTermsFromHash();
+
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) closeDialog();
+        });
+
+        dialog.addEventListener("close", () => {
+          form.reset();
+          clearStatus();
+          resetSubmissionState();
+        });
+
+        const isTrustedGoogleOrigin = (origin) => {
+          try {
+            const url = new URL(origin);
+            return (
+              url.protocol === "https:" &&
+              (url.hostname === "script.google.com" ||
+                url.hostname === "script.googleusercontent.com" ||
+                url.hostname.endsWith("-script.googleusercontent.com"))
+            );
+          } catch (_error) {
+            return false;
+          }
+        };
+
+        window.addEventListener("message", (event) => {
+          const fromGoogle = isTrustedGoogleOrigin(event.origin);
+          const payload = event.data;
+
+          if (
+            !fromGoogle ||
+            event.source !== responseFrame.contentWindow ||
+            !payload ||
+            payload.source !== "mhh-registration" ||
+            payload.submissionToken !== activeToken
+          ) {
+            return;
+          }
+
+          resetSubmissionState();
+
+          if (payload.ok) {
+            form.reset();
+            setStatus(
+              payload.message || "Thank you! Your registration has been received.",
+              "success",
+            );
+            return;
+          }
+
+          setStatus(
+            payload.message || "We could not submit your registration. Please check your details and try again.",
+            "error",
+          );
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          clearStatus();
+
+          if (!form.reportValidity()) return;
+
+          const endpoint = configuredEndpoint();
+          if (!endpoint) {
+            setStatus(
+              "Registration is not connected yet. The site owner must add the Google Apps Script web app URL.",
+              "error",
+            );
+            return;
+          }
+
+          activeToken = createSubmissionToken();
+          submissionToken.value = activeToken;
+          if (!startedAt.value) startedAt.value = String(Date.now());
+
+          let originField = form.querySelector('input[name="page_origin"]');
+          if (!originField) {
+            originField = document.createElement("input");
+            originField.type = "hidden";
+            originField.name = "page_origin";
+            form.appendChild(originField);
+          }
+          originField.value = window.location.origin;
+
+          form.action = endpoint;
+          form.target = responseFrame.name;
+          setSubmitting(true);
+
+          responseTimeout = window.setTimeout(() => {
+            resetSubmissionState();
+            setStatus(
+              "The registration service did not respond. Please check your connection and try again.",
+              "error",
+            );
+          }, 30000);
+
+          HTMLFormElement.prototype.submit.call(form);
+        });
+      })();
+
+      (() => {
+        const carousel = document.getElementById("sales-events-carousel");
+        const carouselSection = carousel?.closest(".sales-events");
+        const previousButton = document.querySelector("[data-carousel-prev]");
+        const nextButton = document.querySelector("[data-carousel-next]");
+        const autoplayButton = document.querySelector("[data-carousel-autoplay]");
+        const pauseIcon = autoplayButton?.querySelector("[data-carousel-pause-icon]");
+        const playIcon = autoplayButton?.querySelector("[data-carousel-play-icon]");
+        const currentLabel = document.getElementById("sales-events-current");
+        const totalLabel = document.getElementById("sales-events-total");
+        const statusLabel = currentLabel?.closest(".carousel-status");
+        const slides = carousel ? Array.from(carousel.querySelectorAll("[data-carousel-slide]")) : [];
+
+        if (
+          !carousel ||
+          !carouselSection ||
+          !previousButton ||
+          !nextButton ||
+          !autoplayButton ||
+          !pauseIcon ||
+          !playIcon ||
+          !currentLabel ||
+          !totalLabel ||
+          !slides.length
+        ) {
+          return;
+        }
+
+        const autoplayDelay = 6000;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const hoverCapable = window.matchMedia("(hover: hover)");
+        let updateFrame;
+        let autoplayTimer;
+        let userPaused = reducedMotion.matches;
+        let hoverPaused = false;
+        let focusPaused = false;
+        let pointerPaused = false;
+        let sectionVisible = true;
+
+        const slidePosition = (slide) =>
+          slide.getBoundingClientRect().left - carousel.getBoundingClientRect().left + carousel.scrollLeft;
+
+        const activeSlideIndex = () => {
+          const positions = slides.map((slide) => Math.abs(slidePosition(slide) - carousel.scrollLeft));
+          return positions.indexOf(Math.min(...positions));
+        };
+
+        const updateStatus = () => {
+          const index = activeSlideIndex();
+          currentLabel.textContent = String(index + 1).padStart(2, "0");
+          slides.forEach((slide, slideIndex) => {
+            const active = slideIndex === index;
+            slide.toggleAttribute("inert", !active);
+            if (active) {
+              slide.removeAttribute("aria-hidden");
+            } else {
+              slide.setAttribute("aria-hidden", "true");
+            }
+          });
+        };
+
+        const showSlide = (requestedIndex) => {
+          const index = (requestedIndex + slides.length) % slides.length;
+
+          carousel.scrollTo({
+            left: slidePosition(slides[index]),
+            behavior: reducedMotion.matches ? "auto" : "smooth",
+          });
+
+          currentLabel.textContent = String(index + 1).padStart(2, "0");
+          slides.forEach((slide, slideIndex) => {
+            const active = slideIndex === index;
+            slide.toggleAttribute("inert", !active);
+            if (active) {
+              slide.removeAttribute("aria-hidden");
+            } else {
+              slide.setAttribute("aria-hidden", "true");
+            }
+          });
+        };
+
+        const canAutoplay = () =>
+          !userPaused &&
+          !hoverPaused &&
+          !focusPaused &&
+          !pointerPaused &&
+          sectionVisible &&
+          !document.hidden;
+
+        const stopAutoplayTimer = () => {
+          window.clearTimeout(autoplayTimer);
+          autoplayTimer = undefined;
+        };
+
+        const updateAutoplayControl = () => {
+          autoplayButton.setAttribute("aria-pressed", String(userPaused));
+          autoplayButton.setAttribute(
+            "aria-label",
+            userPaused ? "Start automatic slide rotation" : "Pause automatic slide rotation",
+          );
+          pauseIcon.hidden = userPaused;
+          playIcon.hidden = !userPaused;
+        };
+
+        const scheduleAutoplay = () => {
+          stopAutoplayTimer();
+          const willRun = canAutoplay();
+
+          if (statusLabel) statusLabel.setAttribute("aria-live", willRun ? "off" : "polite");
+          if (!willRun) return;
+
+          autoplayTimer = window.setTimeout(() => {
+            showSlide(activeSlideIndex() + 1);
+            scheduleAutoplay();
+          }, autoplayDelay);
+        };
+
+        const showManualSlide = (offset) => {
+          showSlide(activeSlideIndex() + offset);
+          scheduleAutoplay();
+        };
+
+        previousButton.addEventListener("click", () => showManualSlide(-1));
+        nextButton.addEventListener("click", () => showManualSlide(1));
+
+        autoplayButton.addEventListener("click", () => {
+          userPaused = !userPaused;
+          updateAutoplayControl();
+          scheduleAutoplay();
+        });
+
+        carousel.addEventListener("keydown", (event) => {
+          if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+          event.preventDefault();
+          showManualSlide(event.key === "ArrowRight" ? 1 : -1);
+        });
+
+        carousel.addEventListener(
+          "wheel",
+          () => scheduleAutoplay(),
+          { passive: true },
+        );
+
+        carousel.addEventListener(
+          "pointerdown",
+          () => {
+            pointerPaused = true;
+            scheduleAutoplay();
+          },
+          { passive: true },
+        );
+
+        const releasePointerPause = () => {
+          if (!pointerPaused) return;
+          pointerPaused = false;
+          scheduleAutoplay();
+        };
+
+        window.addEventListener("pointerup", releasePointerPause, { passive: true });
+        window.addEventListener("pointercancel", releasePointerPause, { passive: true });
+
+        if (hoverCapable.matches) {
+          carouselSection.addEventListener("mouseenter", () => {
+            hoverPaused = true;
+            scheduleAutoplay();
+          });
+
+          carouselSection.addEventListener("mouseleave", () => {
+            hoverPaused = false;
+            scheduleAutoplay();
+          });
+        }
+
+        carouselSection.addEventListener("focusin", () => {
+          focusPaused = true;
+          scheduleAutoplay();
+        });
+
+        carouselSection.addEventListener("focusout", () => {
+          window.setTimeout(() => {
+            focusPaused = carouselSection.contains(document.activeElement);
+            scheduleAutoplay();
+          }, 0);
+        });
+
+        carousel.addEventListener(
+          "scroll",
+          () => {
+            window.cancelAnimationFrame(updateFrame);
+            updateFrame = window.requestAnimationFrame(updateStatus);
+          },
+          { passive: true },
+        );
+
+        document.addEventListener("visibilitychange", scheduleAutoplay);
+
+        const handleReducedMotionChange = (event) => {
+          if (event.matches) userPaused = true;
+          updateAutoplayControl();
+          scheduleAutoplay();
+        };
+
+        if (typeof reducedMotion.addEventListener === "function") {
+          reducedMotion.addEventListener("change", handleReducedMotionChange);
+        } else {
+          reducedMotion.addListener(handleReducedMotionChange);
+        }
+
+        if ("IntersectionObserver" in window) {
+          const visibilityObserver = new IntersectionObserver(
+            ([entry]) => {
+              sectionVisible = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+              scheduleAutoplay();
+            },
+            { threshold: [0, 0.25] },
+          );
+          visibilityObserver.observe(carouselSection);
+        }
+
+        window.addEventListener("resize", updateStatus);
+        totalLabel.textContent = String(slides.length).padStart(2, "0");
+        updateAutoplayControl();
+        updateStatus();
+        scheduleAutoplay();
+      })();
+    </script>
+  </body>
+</html>
