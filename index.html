@@ -26,7 +26,101 @@
       * {
         box-sizing: border-box;
       }
+/* Correct registration dialog sizing */
+.registration-dialog {
+  width: min(645px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  height: auto;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  overscroll-behavior: contain;
+}
 
+/* Mobile registration form */
+@media (max-width: 620px) {
+  .registration-dialog {
+    width: calc(100vw - 12px) !important;
+    max-width: calc(100vw - 12px) !important;
+    max-height: calc(100vh - 12px) !important;
+    max-height: calc(100dvh - 12px) !important;
+    border-radius: 16px;
+  }
+
+  .dialog-shell {
+    width: 100%;
+    padding:
+      34px 15px
+      max(20px, env(safe-area-inset-bottom));
+  }
+
+  #registration-title {
+    padding-right: 38px;
+    font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
+    line-height: 1.08;
+  }
+
+  .dialog-copy {
+    margin-bottom: 18px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .registration-form,
+  .form-grid {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px;
+  }
+
+  .form-field {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 50px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .consent-field {
+    width: 100%;
+    align-items: flex-start;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .consent-field span,
+  .registration-disclaimer {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .registration-form .button {
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .dialog-close {
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+  }
+}
       html {
         scroll-behavior: smooth;
       }
