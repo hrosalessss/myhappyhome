@@ -2643,5 +2643,175 @@
         scheduleAutoplay();
       })();
     </script>
+    <script>
+  (() => {
+    const carousel = document.getElementById("sales-events-carousel");
+    const section = carousel?.closest(".sales-events");
+    const previousButton = document.querySelector("[data-carousel-prev]");
+    const nextButton = document.querySelector("[data-carousel-next]");
+    const currentLabel = document.getElementById("sales-events-current");
+    const totalLabel = document.getElementById("sales-events-total");
+
+    const slides = carousel
+      ? Array.from(carousel.querySelectorAll("[data-carousel-slide]"))
+      : [];
+
+    if (!carousel || !section || !slides.length) return;
+
+    const autoplayDelay = 6000;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    let autoplayTimer;
+    let hoverPaused = false;
+    let focusPaused = false;
+    let touching = false;
+    let sectionVisible = true;
+
+    const slidePosition = (slide) =>
+      slide.getBoundingClientRect().left -
+      carousel.getBoundingClientRect().left +
+      carousel.scrollLeft;
+
+    const activeSlideIndex = () => {
+      const positions = slides.map((slide) =>
+        Math.abs(slidePosition(slide) - carousel.scrollLeft)
+      );
+
+      return positions.indexOf(Math.min(...positions));
+    };
+
+    const updateStatus = () => {
+      const index = activeSlideIndex();
+
+      if (currentLabel) {
+        currentLabel.textContent = String(index + 1).padStart(2, "0");
+      }
+
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === index;
+        slide.toggleAttribute("inert", !active);
+        slide.setAttribute("aria-hidden", String(!active));
+      });
+    };
+
+    const showSlide = (requestedIndex) => {
+      const index =
+        (requestedIndex + slides.length) % slides.length;
+
+      carousel.scrollTo({
+        left: slidePosition(slides[index]),
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+      });
+
+      window.setTimeout(updateStatus, 400);
+    };
+
+    const stopAutoplay = () => {
+      window.clearTimeout(autoplayTimer);
+    };
+
+    const canAutoplay = () =>
+      !reducedMotion.matches &&
+      !hoverPaused &&
+      !focusPaused &&
+      !touching &&
+      sectionVisible &&
+      !document.hidden;
+
+    const startAutoplay = () => {
+      stopAutoplay();
+
+      if (!canAutoplay()) return;
+
+      autoplayTimer = window.setTimeout(() => {
+        showSlide(activeSlideIndex() + 1);
+        startAutoplay();
+      }, autoplayDelay);
+    };
+
+    previousButton?.addEventListener("click", () => {
+      showSlide(activeSlideIndex() - 1);
+      startAutoplay();
+    });
+
+    nextButton?.addEventListener("click", () => {
+      showSlide(activeSlideIndex() + 1);
+      startAutoplay();
+    });
+
+    section.addEventListener("mouseenter", () => {
+      hoverPaused = true;
+      stopAutoplay();
+    });
+
+    section.addEventListener("mouseleave", () => {
+      hoverPaused = false;
+      startAutoplay();
+    });
+
+    section.addEventListener("focusin", () => {
+      focusPaused = true;
+      stopAutoplay();
+    });
+
+    section.addEventListener("focusout", () => {
+      focusPaused = false;
+      startAutoplay();
+    });
+
+    carousel.addEventListener(
+      "pointerdown",
+      () => {
+        touching = true;
+        stopAutoplay();
+      },
+      { passive: true }
+    );
+
+    window.addEventListener(
+      "pointerup",
+      () => {
+        touching = false;
+        updateStatus();
+        startAutoplay();
+      },
+      { passive: true }
+    );
+
+    carousel.addEventListener(
+      "scroll",
+      () => {
+        window.requestAnimationFrame(updateStatus);
+      },
+      { passive: true }
+    );
+
+    document.addEventListener("visibilitychange", startAutoplay);
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          sectionVisible =
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.25;
+
+          startAutoplay();
+        },
+        { threshold: [0, 0.25] }
+      );
+
+      observer.observe(section);
+    }
+
+    if (totalLabel) {
+      totalLabel.textContent = String(slides.length).padStart(2, "0");
+    }
+
+    updateStatus();
+    startAutoplay();
+  })();
+</script>
   </body>
 </html>
