@@ -2068,13 +2068,18 @@
 
             <article class="sales-event-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 3: Events" aria-hidden="true" inert>
               <div class="sales-event-copy">
-                <span class="sales-event-type">Event</span>
+                <a
+  href="#registration-dialog"
+  class="sales-event-type"
+  data-open-registration
+  aria-haspopup="dialog"
+  aria-controls="registration-dialog"
+>
+  Event
+</a>
                 <h3>Events</h3>
                 <p>Watch out for upcoming launches, pop-ups, collaborations, and exclusive My Happy Home experiences.</p>
-                <a class="sales-event-link" href="#how-to-redeem">
-                  View redemption steps
-                  <span aria-hidden="true">→</span>
-                </a>
+             
               </div>
               <figure class="sales-event-photo" aria-hidden="true">
                 <img src="event.jpg" alt="" width="1127" height="1396" loading="lazy" />
