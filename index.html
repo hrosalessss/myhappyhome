@@ -145,11 +145,6 @@
         mix-blend-mode: multiply;
       }
 
-      .lifestyle-logo {
-  transform: translateY(-19px);
-  margin-bottom: 6px;
-}
-
       .lifestyle-title {
         max-width: 650px;
         margin: 0;
@@ -1861,13 +1856,7 @@
         .carousel-button {
           transition: none;
         }
-      }.lifestyle-copy p {
-  font-weight: 700;
-}.lifestyle-title {
-  width: min(100%, 460px);
-  margin: 0 auto 0 0;
-  text-align: center;
-}
+      }
     </style>
   </head>
   <body>
@@ -1891,7 +1880,7 @@
           <div class="lifestyle-grid">
             <div class="lifestyle-panel">
               <div class="lifestyle-logo">
-                <img src="My%20Happy%20Home.png" alt="My Happy Home" width="1366" height="500" />
+                <img src="My%20Happy%20Home.png" alt="My Happy Home" width="2048" height="2048" />
               </div>
               <h2 class="lifestyle-title">What's <em>new?</em></h2>
             </div>
@@ -2350,7 +2339,6 @@
 
           if (
             !fromGoogle ||
-            event.source !== responseFrame.contentWindow ||
             !payload ||
             payload.source !== "mhh-registration" ||
             payload.submissionToken !== activeToken
@@ -2361,11 +2349,13 @@
           resetSubmissionState();
 
           if (payload.ok) {
+            const message =
+              payload.message ||
+              "The My Happy Home Team has received your inquiry. Please allow us to process your request within 1-2 business days.";
             form.reset();
-            setStatus(
-              payload.message || "Thank you! Your registration has been received.",
-              "success",
-            );
+            setStatus(message, "success");
+            window.alert(message);
+            closeDialog();
             return;
           }
 
