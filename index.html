@@ -547,7 +547,8 @@
       }
 
       .registration-dialog {
-        width: min(100% - 32px, 645px);
+        width: min(645px, calc(100vw - 32px));
+        max-width: calc(100vw - 32px);
         max-height: min(760px, calc(100vh - 32px));
         max-height: min(760px, calc(100dvh - 32px));
         padding: 0;
@@ -2057,6 +2058,7 @@
   }
 }
     </style>
+    <script src="./registration.js" defer></script>
   </head>
   <body>
     <div class="topbar" id="top">MY HAPPY HOME EXCLUSIVES</div>
